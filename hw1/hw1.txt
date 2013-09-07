@@ -33,16 +33,16 @@ e.Yes, in the shuffle phase data must be passed from the mapper workers to the r
 
 
 Problem 3: MapReduce Programming
-a.
+a.A good way to represent the correlation between words and spam emails is the frequency with which certain words are in spam emails. This data should then be compared to other data representing the average frequency of these words within normal writing. If the frequency is significantly higher in spam emails than in the average email, it should be considered as potentially spam.
 
 
-b.
+b.Map should give the mappers large chunks of text from different emails, and each mapper will count up the frequency with which certain words appear. Each output of map should have a word as a key and the number of times it appears as the value.
 
 
-c.
+c.The combiner could be written to reduce the size of the output of a mapper by grouping up outputs with the same keys and adding up their values. For example, if there were 2 instances of ("word", 1) then the combiner would output ("word", 2) to reduce the amount of data which the reduce needs to process.
 
 
-d.
+d.The reducer would essentially do the same thing as the combiner but on a larger scale, adding up all the instances of words across all mappers. Unlike the combiner, however, the reducer can only begin working once all mappers have finished.
 
 
 
