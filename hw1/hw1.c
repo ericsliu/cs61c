@@ -1,6 +1,5 @@
-
-
 #include <stdio.h>
+#include <math.h>
 
 int reverseInt(int number);
 
@@ -13,8 +12,19 @@ int main(void) {
 }
 
 int reverseInt(int number) {
-    /* fill in your code here */
+    int len = 0;
+    int temp = number;
+    int count = 0;
+    int answer = 0;
+    while(temp / 10 >= 1) {
+        len++;
+        temp = temp / 10;
+    }
+    while(len >= 0) {
+        answer += (number / (int)pow(10, len)) * (int)pow(10, count);
+        number -= number / (int)pow(10, len) * (int)pow(10, len);
+        len--;
+        count++;
+    }
+    return answer;
 }
-
-
-
