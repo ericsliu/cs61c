@@ -16,19 +16,19 @@ e.False. Servers will always be using some amount of power, even in their idle s
 
 
 Problem 2: MapReduce Questions
-a.
+a.A combiner is like a smaller version of a reducer, and it combines the values of all key-value pairs from one mapper which have the same key.
 
 
-b.
+b.Input key-value pairs must be the same time as output pairs because combiners may run multiple times. If the output pair were not the same type, multiple runs would not be possible.
 
 
-c.
+c.Yes, combiners can start working as soon as it is given some amount of data to work with. It can start working on the data from a faster mapper and not worry about what is in a slower mapper because that is the reducer's job.
 
 
-d.
+d.Yes, because there is such a large amount of data through which keywords must be searched for, it can be easily divided into smaller chunks for separate workers to search through.
 
 
-e.
+e.Yes, in the shuffle phase data must be passed from the mapper workers to the reducer workers.
 
 
 
