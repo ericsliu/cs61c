@@ -1,17 +1,17 @@
 Problem 1: Warehouse Scale Computers
-a.
+a.True. A single large SMP does not have to communicate with other machines in a network, while having many smaller SMPs must suffer a penalty in the latency of communicating on the network. This penalty mostly by the amount of communication required for the job, as curve representing the amount of time wasted in communication levels out as the number of nodes increases.
 
 
-b.
+b.False. Many applications are memory-bound so that faster CPU's do not scale well for large application, and slower CPUs are more cost-efficient.
 
 
-c.
+c.True. The PUE measures the ratio of the total energy used by the facility to the enenergy used by all of the IT equipment. Because the energy consumption of the IT equipment is in both the numerator and the denominator, the ratio must be at least 1.
 
 
-d.
+d.True. According to Figure 5.1 on page 48 of the book by Barroso and Holzle, the average power usage efficiency of 24 datacenters in 2007 was 1.83, meaning that 1 unit of power went to the IT equipment for every 0.83 used for facility maintenance. The survey may not be representative of datacenters in the present, however.
 
 
-e.
+e.False. Servers will always be using some amount of power, even in their idle state. As such, when the serveres are not utilized they will have 0% efficiency. As seen on page 5 of Lecture 2's notes, there is a massive spike in energy efficiency when the load of the server increases from 0 to 10%, but increased load then begins to yield decreasing gains in efficiency.
 
 
 
