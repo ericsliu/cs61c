@@ -1,13 +1,25 @@
 #include <stdio.h>
+#include <math.h>
 
 unsigned int set_bit(unsigned int number, int value, int position) {
     /* YOUR CODE HERE */
-    return 0;
+    int newnum = number;
+    if(get_bit(number, position) == 0 && value == 1) {
+        newnum += (int)pow(2, position);
+    }
+    else if(get_bit(number, position) == 1 && value == 0) {
+        newnum -= (int)pow(2, position);
+    }
+    return newnum;
 }
 
 int get_bit(unsigned int number, int position) {
     /* YOUR CODE HERE */
-    return 0;
+    int value = 0;
+    if(number % (int)pow(2, position + 1) >= (int)pow(2, position)) {
+        value = 1;
+     }
+    return value;
 }
 
 int main(void) {
