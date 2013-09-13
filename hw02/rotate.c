@@ -24,7 +24,17 @@ void rotate(char s[], int n) {
     int size = array_size(s);
     char new_array[size];
     /* YOUR CODE HERE */
-
+    int count = 0;
+    while(count < size - 1) {
+        int temp = count - n;
+        if(temp < 0) {
+            temp = temp % (size);
+            temp += size - 1;
+        }
+        new_array[temp] = s[count];
+        count++;
+    }
+    new_array[size - 1] = 0;
     /* DO NOT CHANGE THIS PRINT LINE */
     printf("%s\n", new_array);
 }
@@ -59,8 +69,13 @@ void print_error() {
  */
 int main(int argc, char* argv[]) {
     /* YOUR CODE HERE */
-
-    
+    if(argc == 2 || argc >= 4) {
+        printf("Error: Incorrect arguments\n");
+    }
+    else if(argc == 3) {
+        rotate(argv[1], atoi(argv[2]));
+    }
+    else if(argc == 1) {
     printf("Should be: bookcoloring\tResults: ");
     rotate("coloringbook", 8);
 
@@ -75,6 +90,8 @@ int main(int argc, char* argv[]) {
 
     printf("Should be: CS61c\tResults: ");
     rotate("CS61c", 5);
+    }
+
     return 0;
 }
 
