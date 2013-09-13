@@ -1,26 +1,29 @@
 CS61C Fa13 HW2
-Name: 
-Login:
+Name: Eric Liu
+Login: vf
 
 
 Problem 1
 
   paste your pointer-based shift.c code below:
-
-
+shift(int *a, int n) {
+    int i;
+    for(i = 0; i != n; i++)
+        *(a + i) = *(a + i + 1);
+}
 
 
 Problem 2
 
  #   Line #        Corrected Code 
  -   ------        ---------------
- 1.
+ 1. 08              int sum_node_eles(point *my_node) {  //returns the sum of members of a single node
  
- 2.
+ 2. 15              struct node *arr[5];
 
- 3.
+ 3. 17              arr[0] =  *pt1;
 
- 4. 
+ 4. 18              printf("The sum is %d.\n", sum_node_eles(arr));
 
  5. 
 
