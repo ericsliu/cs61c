@@ -4,10 +4,10 @@
 * Shifts array a "down" n places, with any indices greater than n left alone
 * For example, shift([1, 2, 3], 2) would return [2, 3, 3]
 */
-void shift(int a[], int n) {
+void shift(int *a, int n) {
     int i;
     for(i = 0; i != n; i++)
-        a[i] = a[i+1];
+        *(a + i) = *(a + i + 1);
 }
 
 int main() {
