@@ -60,53 +60,7 @@ public class Proj1{
                 Func func = funcFromNum(funcNum);
 
                 // YOUR CODE HERE
-                // Have an array of indices for the word being searched, and compare distances by keeping track of iterations through matcher
-                Text newkey = new Text();
-                int targetCount = 0;
-                int index = 0;
-                while(matcher.find()) {
-                    if(matcher.group().toLowerCase().equals(targetGram)) {
-                        targetCount++;
-                    }
-                }
-                if(targetCount == 0) {
-                    while(matcher.find()) {
-                        newkey.set(matcher.group().toLowerCase());
-                        context.write(newkey, new DoublePair(1.0, func.f(Double.POSITIVE_INFINITY)));
-                        index++;
-                    }
-                }
-                else {
-                    int[] indices = new int[targetCount];
-                    int count = 0;
-                    while(matcher.find()) {
-                        if (matcher.group().toLowerCase().equals(targetGram)) {
-                            indices[count] = index;
-                            count++;
-                        }
-                        index++;
-                    }
-                    count = 0;
-                    index = 0;
-                    while(matcher.find()) {
-                        if (!matcher.group().toLowerCase().equals(targetGram)) {
-                            newkey.set(matcher.group().toLowerCase());
-                            if(count < targetCount - 1) {
-                                if(Math.abs(indices[count] - index) < Math.abs(indices[count + 1] - index)) {
-                                    context.write(newkey, new DoublePair(1.0, func.f((double)Math.abs(indices[count] - index))));
-                                }
-                                else {
-                                    count++;
-                                    context.write(newkey, new DoublePair(1.0, func.f((double)Math.abs(indices[count] - index))));
-                                }
-                            }
-                            else {
-                                context.write(newkey, new DoublePair(1.0, func.f((double)Math.abs(indices[count] - index))));
-                            }
-                        }
-                        index++;
-                    }
-                }
+
             }
 
         /** Returns the Func corresponding to FUNCNUM*/

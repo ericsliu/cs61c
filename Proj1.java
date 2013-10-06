@@ -32,7 +32,7 @@ public class Proj1{
     /*
      * Inputs is a set of (docID, document contents) pairs.
      */
-    public static class Map1 extends Mapper<WritableComparable, Text, Text, Text> {
+    public static class Map1 extends Mapper<WritableComparable, Text, Text, DoublePair> {
         /** Regex pattern to find words (alphanumeric + _). */
         final static Pattern WORD_PATTERN = Pattern.compile("\\w+");
 
@@ -145,8 +145,8 @@ public class Proj1{
         @Override
             public void reduce(Text key, Iterable<DoublePair> values,
                     Context context) throws IOException, InterruptedException {
-
                  // YOUR CODE HERE
+                 // Sum up DoublePairs for each key
                  double double1 = 0.0;
                  double double2 = 0.0;
                  for (DoublePair value : values) {
@@ -162,7 +162,6 @@ public class Proj1{
         @Override
             public void reduce(Text key, Iterable<DoublePair> values,
                     Context context) throws IOException, InterruptedException {
-
                 // YOUR CODE HERE
                 double double1 = 0.0;
                 double double2 = 0.0;
@@ -207,7 +206,6 @@ public class Proj1{
         @Override
             public void reduce(DoubleWritable key, Iterable<Text> values,
                     Context context) throws IOException, InterruptedException {
-
                  // YOUR CODE HERE
                  /*for(Text value : values) {
                      context.write(key, value);
